@@ -102,7 +102,6 @@ const(
 )
 
 func connectionToMongo() {
-	//uri := "mongodb://dbuser:dbuser@ds041154.mongolab.com:41154/test_db"
     uri := " mongodb://dbuser:dbuser@ds045464.mongolab.com:45464/testgoogledatabase"
     session, err := mgo.Dial(uri)
 
