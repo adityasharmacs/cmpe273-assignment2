@@ -116,7 +116,7 @@ func connectionToMongo() {
 
 
 
-func getGoogleLoc(address string) (geoLoc GeoLocation) {
+func getGoogleLoc(address string) (geoLoc GeographicLocation) {
 	
 	client := http.Client{Timeout: timeout}
 	url := fmt.Sprintf("http://maps.google.com/maps/api/geocode/json?address=%s",address)
@@ -137,7 +137,7 @@ func getGoogleLoc(address string) (geoLoc GeoLocation) {
 func getLocn(rw http.ResponseWriter, req *http.Request, p httprouter.Params) {
 	
 	id := bson.ObjectIdHex(p.ByName("locID"))
-	err := collection.FindId(id).One(&positionResponse)
+	err := collec.FindId(id).One(&positionResponse)
   	if err != nil {
     	fmt.Printf("got an error finding a doc %v\n")
     } 	
@@ -186,7 +186,7 @@ func addLocn(rw http.ResponseWriter, req *http.Request, p httprouter.Params) {
 func updateLocn(rw http.ResponseWriter, req *http.Request, p httprouter.Params) {
 
 	var tempPositionResponse PositionResponse
-	var positionResponse LocationResponse
+	var positionResponse PositionResponse
 	id := bson.ObjectIdHex(p.ByName("locID"))
 	err := collec.FindId(id).One(&positionResponse)
   	if err != nil {
