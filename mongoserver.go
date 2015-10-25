@@ -223,10 +223,10 @@ func updateLocn(rw http.ResponseWriter, req *http.Request, p httprouter.Params) 
     json.NewEncoder(rw).Encode(positionResponse)
 }
 
-func deleteLocation(rw http.ResponseWriter, req *http.Request, p httprouter.Params) {
+func deleteLocn(rw http.ResponseWriter, req *http.Request, p httprouter.Params) {
 
 	id := bson.ObjectIdHex(p.ByName("locID"))
-	err := collection.RemoveId(id)
+	err := collec.RemoveId(id)
   	if err != nil {
     	fmt.Printf("Got an error while deleting a location %v\n")
     }
