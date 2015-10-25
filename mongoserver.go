@@ -101,7 +101,7 @@ const(
     timeout = time.Duration(time.Second*100)
 )
 
-func connectionToMongo() {
+func connectionToMongo() {	
     uri := " mongodb://dbuser:dbuser@ds045464.mongolab.com:45464/testgoogledatabase"
     session, err := mgo.Dial(uri)
 
